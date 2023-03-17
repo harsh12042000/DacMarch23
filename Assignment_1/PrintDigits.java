@@ -1,0 +1,27 @@
+import java.util.Scanner;
+class PrintDigits {
+	public static void main(String arg[]) {
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter number:");
+		int num = sc.nextInt();
+		
+		int arr[] = new int[10];
+		int i=0, rem;
+		
+		while(num != 0) {
+			
+			rem = num % 10;
+			arr[i] = rem;
+			num = num/10;
+			i++;
+			
+		}
+		
+		System.out.println("Digits are: ");
+		for(int j=i-1;j>=0;j--) {
+			System.out.println(arr[j]);
+		}
+		
+	}
+}
