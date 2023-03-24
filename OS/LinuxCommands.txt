@@ -1,0 +1,509 @@
+root@DESKTOP-LSLV04B:~# sudo apt-get update
+
+root@DESKTOP-LSLV04B:~# sudo apt-get install ncal
+
+root@DESKTOP-LSLV04B:~# cal
+     March 2023
+Su Mo Tu We Th Fr Sa
+          1  2  3  4
+ 5  6  7  8  9 10 11
+12 13 14 15 16 17 18
+19 20 21 22 23 24 25
+26 27 28 29 30 31
+
+root@DESKTOP-LSLV04B:~# whoami
+root
+
+root@DESKTOP-LSLV04B:~# id
+uid=0(root) gid=0(root) groups=0(root)
+
+root@DESKTOP-LSLV04B:~# pwd
+/root
+
+root@DESKTOP-LSLV04B:~# ls
+cdac
+
+root@DESKTOP-LSLV04B:~# ls -l
+total 0
+drwxr-xr-x 1 root root 4096 Mar 21 10:23 cdac
+
+root@DESKTOP-LSLV04B:~# ls -d
+.
+root@DESKTOP-LSLV04B:~# ls -a
+.  ..  .bash_history  .bashrc  .motd_shown  .profile  cdac
+
+root@DESKTOP-LSLV04B:~# ls -R
+.:
+cdac
+
+./cdac:
+
+root@DESKTOP-LSLV04B:~# man ls
+
+root@DESKTOP-LSLV04B:~# ls
+cdac
+
+root@DESKTOP-LSLV04B:~# cd cdac
+
+root@DESKTOP-LSLV04B:~/cdac# cd~
+Command 'cd~' not found, did you mean:
+  command 'cde' from deb cde (0.1+git9-g551e54d-1.2)
+  command 'cdp' from deb irpas (0.10-9)
+  command 'cdo' from deb cdo (2.0.4-1)
+  command 'cdi' from deb cdo (2.0.4-1)
+  command 'cdb' from deb tinycdb (0.78build3)
+  command 'cdw' from deb cdw (0.8.1-2)
+  command 'cd5' from deb cd5 (0.1-4)
+Try: apt install <deb name>
+
+root@DESKTOP-LSLV04B:~/cdac# cd ~
+
+root@DESKTOP-LSLV04B:~# cd cdac
+
+root@DESKTOP-LSLV04B:~/cdac# mkdir test
+
+root@DESKTOP-LSLV04B:~/cdac# cd test
+
+root@DESKTOP-LSLV04B:~/cdac/test# cd ..
+
+root@DESKTOP-LSLV04B:~/cdac# cd test
+
+root@DESKTOP-LSLV04B:~/cdac/test# cd ~
+
+root@DESKTOP-LSLV04B:~/cdac# touch abc.txt
+
+root@DESKTOP-LSLV04B:~/cdac# touch abc.csv
+
+root@DESKTOP-LSLV04B:~/cdac# ls
+abc.csv  abc.txt  test
+
+root@DESKTOP-LSLV04B:~/cdac# mkdir -p dir1/dir2
+
+root@DESKTOP-LSLV04B:~/cdac# ls
+abc.csv  abc.txt  dir1  test
+
+root@DESKTOP-LSLV04B:~/cdac# cd dir1
+
+root@DESKTOP-LSLV04B:~/cdac/dir1# ls
+dir2
+
+root@DESKTOP-LSLV04B:~/cdac/dir1# cd dir2
+
+root@DESKTOP-LSLV04B:~/cdac/dir1/dir2# ls
+
+root@DESKTOP-LSLV04B:~/cdac/dir1/dir2# cd ..
+
+root@DESKTOP-LSLV04B:~/cdac/dir1# cd ..
+
+root@DESKTOP-LSLV04B:~/cdac# ls
+abc.csv  abc.txt  dir1  test
+
+root@DESKTOP-LSLV04B:~/cdac# rm -rf dir1
+
+root@DESKTOP-LSLV04B:~/cdac# ls
+abc.csv  abc.txt  test
+
+root@DESKTOP-LSLV04B:~/cdac# rm abc.csv
+
+root@DESKTOP-LSLV04B:~/cdac# ls
+abc.txt  test
+
+----------------------------------------------------------
+
+root@DESKTOP-LSLV04B:~/cdac# ls
+abc.txt  test
+
+root@DESKTOP-LSLV04B:~/cdac# cat abc.txt
+
+root@DESKTOP-LSLV04B:~/cdac# cat >abc.txt
+Good Morning
+
+Welcome to CDAC Mumbai!
+
+//(to exit use ctrl + D)
+
+root@DESKTOP-LSLV04B:~/cdac# cat abc.txt
+Good Morning
+
+Welcome to CDAC Mumbai!
+
+------------------------------------------------------------
+
+root@DESKTOP-LSLV04B:~/cdac# ls
+abc.txt  test
+
+root@DESKTOP-LSLV04B:~/cdac# cp abc.txt abccopy.txt
+
+root@DESKTOP-LSLV04B:~/cdac# ls
+abc.txt  abccopy.txt  test
+
+root@DESKTOP-LSLV04B:~/cdac# cat abccopy.txt
+Good Morning
+
+Welcome to CDAC Mumbai!
+
+--------------------------------------------------------------
+
+root@DESKTOP-LSLV04B:~/cdac# ls
+abc.txt  abccopy.txt  test
+root@DESKTOP-LSLV04B:~/cdac# mv abccopy.txt copyabc.txt
+root@DESKTOP-LSLV04B:~/cdac# ls
+abc.txt  copyabc.txt  test
+root@DESKTOP-LSLV04B:~/cdac# cat copyabc.txt
+Good Morning
+
+Welcome to CDAC Mumbai!
+
+--------------------------------------------------------------
+
+root@DESKTOP-LSLV04B:~/cdac# ls
+abc.txt  abccopy.txt  test
+root@DESKTOP-LSLV04B:~/cdac# mv abccopy.txt copyabc.txt
+root@DESKTOP-LSLV04B:~/cdac# ls
+abc.txt  copyabc.txt  test
+root@DESKTOP-LSLV04B:~/cdac# cat copyabc.txt
+Good Morning
+
+Welcome to CDAC Mumbai!
+
+root@DESKTOP-LSLV04B:~/cdac# wc abc.txt
+ 4  6 39 abc.txt
+root@DESKTOP-LSLV04B:~/cdac# wc -l  abc.txt
+4 abc.txt
+root@DESKTOP-LSLV04B:~/cdac# wc abc.txt
+ 4  6 39 abc.txt
+root@DESKTOP-LSLV04B:~/cdac# ls -l
+total 0
+-rw-r--r-- 1 root root   39 Mar 21 11:12 abc.txt
+-rw-r--r-- 1 root root   39 Mar 21 11:14 copyabc.txt
+drwxr-xr-x 1 root root 4096 Mar 21 11:03 test
+--------------------------------------------------------------
+
+root@DESKTOP-LSLV04B:~/cdac# echo "HIeee!"
+HIeee!
+
+-------------------------------------------------------------
+
+root@DESKTOP-LSLV04B:~/cdac# ls /
+bin   dev  home  lib    lib64   media  opt   root  sbin  srv  tmp  var
+boot  etc  init  lib32  libx32  mnt    proc  run   snap  sys  usr
+
+root@DESKTOP-LSLV04B:~/cdac# ls / | wc -w
+23
+
+root@DESKTOP-LSLV04B:~/cdac# ls / > details.txt
+
+root@DESKTOP-LSLV04B:~/cdac# ls
+abc.txt  copyabc.txt  details.txt  test
+
+root@DESKTOP-LSLV04B:~/cdac# ls /
+bin   dev  home  lib    lib64   media  opt   root  sbin  srv  tmp  var
+boot  etc  init  lib32  libx32  mnt    proc  run   snap  sys  usr
+
+root@DESKTOP-LSLV04B:~/cdac# cat details.txt
+bin
+boot
+dev
+etc
+home
+init
+lib
+lib32
+lib64
+libx32
+media
+mnt
+opt
+proc
+root
+run
+sbin
+snap
+srv
+sys
+tmp
+usr
+var
+
+--------------------------------------------------------------
+root@DESKTOP-LSLV04B:~/cdac# ls -l
+total 0
+-rw-r--r-- 1 root root   39 Mar 21 11:12 abc.txt
+-rw-r--r-- 1 root root   39 Mar 21 11:14 copyabc.txt
+-rw-r--r-- 1 root root  108 Mar 21 11:22 details.txt
+drwxr-xr-x 1 root root 4096 Mar 21 11:03 test
+root@DESKTOP-LSLV04B:~/cdac# ls /usr/ > details.txt
+
+root@DESKTOP-LSLV04B:~/cdac# cat details.txt
+bin
+games
+include
+lib
+lib32
+lib64
+libexec
+libx32
+local
+sbin
+share
+src
+
+root@DESKTOP-LSLV04B:~/cdac# ls -l /tmp/ >>details.txt
+
+root@DESKTOP-LSLV04B:~/cdac# cat details.txt
+bin
+games
+include
+lib
+lib32
+lib64
+libexec
+libx32
+local
+sbin
+share
+src
+total 0
+
+root@DESKTOP-LSLV04B:~/cdac# ls -l /home/ >>details.txt
+
+root@DESKTOP-LSLV04B:~/cdac# cat details.txt
+bin
+games
+include
+lib
+lib32
+lib64
+libexec
+libx32
+local
+sbin
+share
+src
+total 0
+total 0
+
+root@DESKTOP-LSLV04B:~/cdac# cat abc.txt
+Good Morning
+
+Welcome to CDAC Mumbai!
+
+root@DESKTOP-LSLV04B:~/cdac# cat >> abc.txt
+Hi Linux
+
+You made our life so easy!!
+root@DESKTOP-LSLV04B:~/cdac# cat abc.txt
+Good Morning
+
+Welcome to CDAC Mumbai!
+
+Hi Linux
+
+You made our life so easy!!
+
+--------------------------------------------------------------
+
+root@DESKTOP-LSLV04B:~/cdac# touch A AB ABC ABCD
+
+root@DESKTOP-LSLV04B:~/cdac# ls
+A  AB  ABC  ABCD  abc.txt  copyabc.txt  courses  details.txt  test  text.txt
+
+root@DESKTOP-LSLV04B:~/cdac# touch a ad aaa aaaa abcd
+
+root@DESKTOP-LSLV04B:~/cdac# ls
+A  AB  ABC  ABCD  a  aaa  aaaa  abc.txt  abcd  ad  copyabc.txt  courses  details.txt  test  text.txt
+
+root@DESKTOP-LSLV04B:~/cdac# ls ?
+A  a
+
+root@DESKTOP-LSLV04B:~/cdac# ls ??
+AB  ad
+
+root@DESKTOP-LSLV04B:~/cdac# ls ???
+ABC  aaa
+
+root@DESKTOP-LSLV04B:~/cdac# ls ????
+ABCD  aaaa  abcd
+
+test:
+
+root@DESKTOP-LSLV04B:~/cdac# ls ??c
+ls: cannot access '??c': No such file or directory
+
+root@DESKTOP-LSLV04B:~/cdac# ls ??C
+ABC
+
+root@DESKTOP-LSLV04B:~/cdac# rm ?
+
+root@DESKTOP-LSLV04B:~/cdac# ls
+AB  ABC  ABCD  aaa  aaaa  abc.txt  abcd  ad  copyabc.txt  courses  details.txt  test  text.txt
+
+root@DESKTOP-LSLV04B:~/cdac# rm ??
+
+root@DESKTOP-LSLV04B:~/cdac# ls
+ABC  ABCD  aaa  aaaa  abc.txt  abcd  copyabc.txt  courses  details.txt  test  text.txt
+
+root@DESKTOP-LSLV04B:~/cdac# rm ???
+
+root@DESKTOP-LSLV04B:~/cdac# ls
+ABCD  aaaa  abc.txt  abcd  copyabc.txt  courses  details.txt  test  text.txt
+
+root@DESKTOP-LSLV04B:~/cdac# mkdir h hh hhhh hhhhh
+
+root@DESKTOP-LSLV04B:~/cdac# ls
+ABCD  aaaa  abc.txt  abcd  copyabc.txt  courses  details.txt  h  hh  hhhh  hhhhh  test  text.txt
+
+root@DESKTOP-LSLV04B:~/cdac# cat > a
+Text Added!!
+
+root@DESKTOP-LSLV04B:~/cdac# ls
+ABCD  a  aaaa  abc.txt  abcd  copyabc.txt  courses  details.txt  h  hh  hhhh  hhhhh  test  text.txt
+
+root@DESKTOP-LSLV04B:~/cdac# cat ?
+Text Added!!
+cat: h: Is a directory
+
+root@DESKTOP-LSLV04B:~/cdac# cat ??
+cat: hh: Is a directory
+
+root@DESKTOP-LSLV04B:~/cdac# file *
+ABCD:        empty
+a:           ASCII text
+aaaa:        empty
+abc.txt:     ASCII text
+abcd:        empty
+copyabc.txt: ASCII text
+courses:     ASCII text
+details.txt: ASCII text
+h:           directory
+hh:          directory
+hhhh:        directory
+hhhhh:       directory
+test:        directory
+text.txt:    empty
+
+root@DESKTOP-LSLV04B:~/cdac# file *a
+a:    ASCII text
+aaaa: empty
+
+root@DESKTOP-LSLV04B:~/cdac# file *d
+abcd: empty
+
+root@DESKTOP-LSLV04B:~/cdac# file *D
+ABCD: empty
+
+root@DESKTOP-LSLV04B:~/cdac# rm -r *
+
+root@DESKTOP-LSLV04B:~/cdac# ls
+
+--------------------------------------------------------------
+
+root@DESKTOP-LSLV04B:~/cdac# mkdir h hh hhhh hhhhh
+
+root@DESKTOP-LSLV04B:~/cdac# touch a ad aaa aaaa abcd
+
+root@DESKTOP-LSLV04B:~/cdac# touch A AB ABC ABCD
+
+root@DESKTOP-LSLV04B:~/cdac# ls
+A  AB  ABC  ABCD  a  aaa  aaaa  abcd  ad  h  hh  hhhh  hhhhh
+
+root@DESKTOP-LSLV04B:~/cdac# ls [abcd]*
+a  aaa  aaaa  abcd  ad
+
+root@DESKTOP-LSLV04B:~/cdac# rmdir [AB]*
+rmdir: failed to remove 'A': Not a directory
+rmdir: failed to remove 'AB': Not a directory
+rmdir: failed to remove 'ABC': Not a directory
+rmdir: failed to remove 'ABCD': Not a directory
+
+root@DESKTOP-LSLV04B:~/cdac# ls [a-d]*
+a  aaa  aaaa  abcd  ad
+
+root@DESKTOP-LSLV04B:~/cdac# cat > course
+Java
+Unix
+Python
+
+root@DESKTOP-LSLV04B:~/cdac# grep Unix course
+Unix
+
+root@DESKTOP-LSLV04B:~/cdac# man grep
+
+root@DESKTOP-LSLV04B:~/cdac# cat > course
+Unix
+Unix
+Unix
+
+root@DESKTOP-LSLV04B:~/cdac# cat course
+Unix
+Unix
+Unix
+
+root@DESKTOP-LSLV04B:~/cdac# cat >> course
+Python
+Oracle
+Java
+Java
+unix
+
+root@DESKTOP-LSLV04B:~/cdac# cat course
+Unix
+Unix
+Unix
+Python
+Oracle
+Java
+Java
+unix
+
+root@DESKTOP-LSLV04B:~/cdac# grep Unix course
+Unix
+Unix
+Unix
+
+root@DESKTOP-LSLV04B:~/cdac# grep -i Unix course
+Unix
+Unix
+Unix
+unix
+
+root@DESKTOP-LSLV04B:~/cdac# grep -n Unix course
+1:Unix
+2:Unix
+3:Unix
+
+
+root@DESKTOP-LSLV04B:~/cdac# grep -c Unix course
+3
+
+root@DESKTOP-LSLV04B:~/cdac# grep -ni Unix course
+1:Unix
+2:Unix
+3:Unix
+8:unix
+
+root@DESKTOP-LSLV04B:~/cdac# grep -ic Unix course
+4
+
+------------------------------------------------------------
+Vi Editor:
+
+1. vi filename.sh
+2. Esc +i(insert)
+3. Add the code into the file
+4. Esc + :wq (:w --> save, q --> exit)
+5. chmod +x filename.sh (grant execution permission, x--> execution permission)
+6. ./filename.sh or bash filename.sh (Execute)
+
+
+
+(r, w, x --> Permission)(read, write, exexute : 7 --> 111, 1 --> bit file type, Filetype User  Group  Others)
+1. Symbolic mode
+	-chmod
+	+ -> Adding Permission
+	- -> remove permission
+	
+2. Absolute mode
+	1 -> ON
+	0 -> OFF
+------------------------------------------------------------- 
