@@ -1,0 +1,119 @@
+F:\Cdac\OOPJ\Day1>javap              
+Usage: javap <options> <classes>
+where possible options include: 
+  -help  --help  -?        Print this usage message
+  -version                 Version information
+  -v  -verbose             Print additional information
+  -l                       Print line number and local variable tables  
+  -public                  Show only public classes and members
+  -protected               Show protected/public classes and members    
+
+F:\Cdac\OOPJ\Day1>javap
+Usage: javap <options> <classes>
+where possible options include: 
+  -help  --help  -?        Print this usage message
+  -version                 Version information
+  -v  -verbose             Print additional information
+  -l                       Print line number and local variable tables
+  -public                  Show only public classes and members
+  -protected               Show protected/public classes and members
+  -package                 Show package/protected/public classes
+                           and members (default)
+  -p  -private             Show all classes and members
+  -c                       Disassemble the code
+  -s                       Print internal type signatures
+  -sysinfo                 Show system info (path, size, date, MD5 hash)
+                           of class being processed
+  -constants               Show final constants
+  -classpath <path>        Specify where to find user class files
+  -cp <path>               Specify where to find user class files
+  -bootclasspath <path>    Override location of bootstrap class files
+
+F:\Cdac\OOPJ\Day1>javap -version
+1.8.0_361
+
+F:\Cdac\OOPJ\Day1>javap -l      
+Error: no classes specified
+
+F:\Cdac\OOPJ\Day1>javap -l Program.class
+Compiled from "Program.java"
+class Program {
+  Program();
+    LineNumberTable:
+      line 1: 0
+
+  public static void main(java.lang.String[]);
+    LineNumberTable:
+      line 3: 0
+      line 4: 8
+}
+
+F:\Cdac\OOPJ\Day1>javap -public Program.class 
+Compiled from "Program.java"
+class Program {
+  public static void main(java.lang.String[]);
+}
+
+F:\Cdac\OOPJ\Day1>javap -protected Program.class 
+Compiled from "Program.java"
+class Program {
+  public static void main(java.lang.String[]);
+}
+
+F:\Cdac\OOPJ\Day1>javap -package Program.class   
+Compiled from "Program.java"
+class Program {
+  Program();
+  public static void main(java.lang.String[]);
+}
+
+F:\Cdac\OOPJ\Day1>javap -p -private Program.class 
+Compiled from "Program.java"
+class Program {
+  Program();
+  public static void main(java.lang.String[]);
+}
+
+F:\Cdac\OOPJ\Day1>javap -c Program.class          
+Compiled from "Program.java"
+class Program {
+  Program();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: ldc           #3                  // String Hello World
+       5: invokevirtual #4                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       8: return
+}
+
+F:\Cdac\OOPJ\Day1>javap -s Program.class 
+Compiled from "Program.java"
+class Program {
+  Program();
+    descriptor: ()V
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+}
+
+F:\Cdac\OOPJ\Day1>javap -sysinfo Program.class 
+Classfile /F:/Cdac/OOPJ/Day1/Program.class
+  Last modified Mar 29, 2023; size 419 bytes
+  MD5 checksum c2b81aa707959cf724049e7c29f84111
+  Compiled from "Program.java"
+class Program {
+  Program();
+  public static void main(java.lang.String[]);
+}
+
+F:\Cdac\OOPJ\Day1>javap -constants Program.class 
+Compiled from "Program.java"
+class Program {
+  Program();
+  public static void main(java.lang.String[]);
+}
