@@ -1,0 +1,96 @@
+SELECT * 
+FROM S
+ORDER BY CITY;
+
+mysql> SELECT *
+    -> FROM S
+    -> ORDER BY City;
++------+-------+--------+--------+
+| S#   | Sname | Status | City   |
++------+-------+--------+--------+
+| S3   | Vipul | 30     | Nagpur |
+| S1   | Sam   | 10     | Nashik |
+| S2   | Harsh | 20     | Pune   |
++------+-------+--------+--------+
+3 rows in set (0.00 sec)
+
+mysql> insert into P values ('P4', 'Aniket', 'Yellow', 40, 'Nagpur');
+Query OK, 1 row affected (0.49 sec)
+
+mysql> SELECT *
+    -> FROM P
+    -> ORDER BY City ASC, Pname ASC;
++------+--------+--------+--------+--------+
+| P#   | Pname  | Color  | Weight | City   |
++------+--------+--------+--------+--------+
+| P4   | Aniket | Yellow | 40     | Nagpur |
+| P3   | Vipul  | Orange | 30     | Nagpur |
+| P1   | Ram    | Green  | 10     | Nashik |
+| P2   | Daksh  | Pink   | 20     | Pune   |
++------+--------+--------+--------+--------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM S
+    -> WHERE Status BETWEEN 10 AND 20;
++------+-------+--------+--------+
+| S#   | Sname | Status | City   |
++------+-------+--------+--------+
+| S1   | Sam   | 10     | Nashik |
+| S2   | Harsh | 20     | Pune   |
++------+-------+--------+--------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM P
+    -> WHERE Weight NOT BETWEEN 10 AND 15;
++------+--------+--------+--------+--------+
+| P#   | Pname  | Color  | Weight | City   |
++------+--------+--------+--------+--------+
+| P2   | Daksh  | Pink   | 20     | Pune   |
+| P3   | Vipul  | Orange | 30     | Nagpur |
+| P4   | Aniket | Yellow | 40     | Nagpur |
++------+--------+--------+--------+--------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM P
+    -> WHERE Pname >= 'S' and Pname <= 'T';
++------+-------+-------+--------+--------+
+| P#   | Pname | Color | Weight | City   |
++------+-------+-------+--------+--------+
+| P4   | Sayli | Green | 60     | Kanpur |
++------+-------+-------+--------+--------+
+1 row in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM P
+    -> WHERE Pname LIKE 'S%';
++------+-------+-------+--------+--------+
+| P#   | Pname | Color | Weight | City   |
++------+-------+-------+--------+--------+
+| P4   | Sayli | Green | 60     | Kanpur |
++------+-------+-------+--------+--------+
+1 row in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM S
+    -> WHERE City LIKE 'L%';
++------+---------+--------+--------+
+| S#   | Sname   | Status | City   |
++------+---------+--------+--------+
+| S4   | Akshada | 40     | Ladakh |
++------+---------+--------+--------+
+1 row in set (0.00 sec)
+
+mysql> insert into J values ('J4', 'Don', 'Furfuri');
+
+mysql> SELECT *
+    -> FROM J
+    -> WHERE Jname LIKE '__n%';
++------+-------+---------+
+| J#   | Jname | City    |
++------+-------+---------+
+| J4   | Don   | Furfuri |
++------+-------+---------+
+1 row in set (0.00 sec)

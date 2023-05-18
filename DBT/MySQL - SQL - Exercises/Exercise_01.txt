@@ -1,0 +1,204 @@
+mysql> use nashik;
+Database changed
+mysql> create table SEMP
+    -> (
+    -> EMPNO char(4),
+    -> EMPNAME char(20),
+    -> BASIC float,
+    -> DEPTNO char(2),
+    -> DEPTHEAD char(4)
+    -> );
+Query OK, 0 rows affected (0.90 sec)
+
+mysql> create table SDEPT
+    -> (
+    -> DEPTNO char(2),
+    -> DEPTNAME char(15)
+    -> );
+Query OK, 0 rows affected (0.32 sec)
+
+mysql> insert into SDEPT(DEPTNO, DEPTNAME) values
+    -> (10, 'Development'),
+    -> (20, 'Training');
+Query OK, 2 rows affected (1.06 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> insert into SEMP(EMPNO, EMPNAME, BASIC, DEPTNO, DEPTHEAD) values
+    -> (0001, 'SUNIL', 6000, 10, null),
+    -> (0002, 'HIREN', 8000, 20, null),
+    -> (0003, 'ALI', 4000, 10, 0001),
+    -> (0004, 'GEORGE', 6000, null, 0002);
+Query OK, 4 rows affected (0.63 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> create table S(`S#` char(4), Sname varchar(10), Status varchar(10), City varchar(10));
+Query OK, 0 rows affected (0.54 sec)
+
+mysql> create table P(`P#` char(4), Pname varchar(10), Color varchar(10), Weight varchar(5),City varchar(10));
+Query OK, 0 rows affected (0.14 sec)
+
+mysql> create table J(`J#` char(4), Jname varchar(10), City varchar(10));
+Query OK, 0 rows affected (0.49 sec)
+
+mysql> create table SPJ(`S#` char(4), `P#` char(4), `J#` char(4), Qty varchar(10));
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> create table S(`S#` char(4), Sname varchar(10), Status varchar(10), City varchar(10));
+Query OK, 0 rows affected (0.54 sec)
+
+mysql> create table P(`P#` char(4), Pname varchar(10), Color varchar(10), Weight varchar(5),City varchar(10));
+Query OK, 0 rows affected (0.14 sec)
+
+mysql> create table J(`J#` char(4), Jname varchar(10), City varchar(10));
+Query OK, 0 rows affected (0.49 sec)
+
+mysql> create table SPJ(`S#` char(4), `P#` char(4), `J#` char(4), Qty varchar(10));
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> insert into S(`S#`, Sname, Status, City) values ('S1', 'Sam', 10), ('S2', 'Harsh', 20), ('S3', 'Vipul', 30);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into S(`S#`, Sname, Status, City) values ('S1', 'Sam', 10, 'Nashik'), ('S2', 'Harsh', 20, 'Pune'), ('S3', 'Vipul', 30, 'Nagpur');
+Query OK, 3 rows affected (0.11 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> insert into P(`P#`, Pname, Color, Weight, City) values ('P1', 'Ram', 'Green', 10, 'Nashik'), ('P2', 'Daksh', 'Pink', 20, 'Pune'), ('P3', 'Vipul', 'Orange', 30, 'Nagpur');
+Query OK, 3 rows affected (0.12 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> insert into J(`J#`, Jname, City) values ('J1', 'Shyam', 'Nashik'), ('J2', 'Aksh', 'Pune'), ('J3', 'Om', 'Nagpur');
+Query OK, 3 rows affected (0.03 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> insert into SPJ(`S#`, `P#`, `J#`, Qty) values ('S1', 'P1', 'J1', 10), ('S1', 'P2', 'J2', 20), ('S3', 'P3', 'J3', 30);
+Query OK, 3 rows affected (0.57 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from S;
++------+-------+--------+--------+
+| S#   | Sname | Status | City   |
++------+-------+--------+--------+
+| S1   | Sam   | 10     | Nashik |
+| S2   | Harsh | 20     | Pune   |
+| S3   | Vipul | 30     | Nagpur |
++------+-------+--------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select `S#`,Sname from S;
++------+-------+
+| S#   | Sname |
++------+-------+
+| S1   | Sam   |
+| S2   | Harsh |
+| S3   | Vipul |
++------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select Pname, Color from P
+    -> where city = 'Pune';
++-------+-------+
+| Pname | Color |
++-------+-------+
+| Daksh | Pink  |
++-------+-------+
+1 row in set (0.00 sec)
+
+mysql> select * from S
+    -> where city = 'Pune';
++------+-------+--------+------+
+| S#   | Sname | Status | City |
++------+-------+--------+------+
+| S2   | Harsh | 20     | Pune |
++------+-------+--------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from S
+    -> where city = 'Nashik' or city = 'Nagpur';
++------+-------+--------+--------+
+| S#   | Sname | Status | City   |
++------+-------+--------+--------+
+| S1   | Sam   | 10     | Nashik |
+| S3   | Vipul | 30     | Nagpur |
++------+-------+--------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select * from P
+    -> where city in('Nagpur');
++------+-------+--------+--------+--------+
+| P#   | Pname | Color  | Weight | City   |
++------+-------+--------+--------+--------+
+| P3   | Vipul | Orange | 30     | Nagpur |
++------+-------+--------+--------+--------+
+1 row in set (0.00 sec)
+
+mysql> select * from P
+    -> where weight >= 12 and weight <=14;
+Empty set (0.00 sec)
+
+mysql> select * from P
+    -> where weight >= 12 and weight <=20;
++------+-------+-------+--------+------+
+| P#   | Pname | Color | Weight | City |
++------+-------+-------+--------+------+
+| P2   | Daksh | Pink  | 20     | Pune |
++------+-------+-------+--------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from P
+    -> where weight between 12 and 20;
++------+-------+-------+--------+------+
+| P#   | Pname | Color | Weight | City |
++------+-------+-------+--------+------+
+| P2   | Daksh | Pink  | 20     | Pune |
++------+-------+-------+--------+------+
+1 row in set (0.10 sec)
+
+mysql> select * from S
+    -> where status >= 20;
++------+-------+--------+--------+
+| S#   | Sname | Status | City   |
++------+-------+--------+--------+
+| S2   | Harsh | 20     | Pune   |
+| S3   | Vipul | 30     | Nagpur |
++------+-------+--------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select * from S
+    -> where city not In('Pune');
++------+-------+--------+--------+
+| S#   | Sname | Status | City   |
++------+-------+--------+--------+
+| S1   | Sam   | 10     | Nashik |
+| S3   | Vipul | 30     | Nagpur |
++------+-------+--------+--------+
+2 rows in set (0.00 sec)
+
+
+mysql> select * from S
+    -> where city != 'Pune';
++------+-------+--------+--------+
+| S#   | Sname | Status | City   |
++------+-------+--------+--------+
+| S1   | Sam   | 10     | Nashik |
+| S3   | Vipul | 30     | Nagpur |
++------+-------+--------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select City from S;
++--------+
+| City   |
++--------+
+| Nashik |
+| Pune   |
+| Nagpur |
++--------+
+3 rows in set (0.00 sec)
+
+mysql> select weight*1000 "milligrams", weight/1000 "kilograms" from p;
++------------+-----------+
+| milligrams | kilograms |
++------------+-----------+
+|      10000 |      0.01 |
+|      20000 |      0.02 |
+|      30000 |      0.03 |
++------------+-----------+
+3 rows in set (0.03 sec)

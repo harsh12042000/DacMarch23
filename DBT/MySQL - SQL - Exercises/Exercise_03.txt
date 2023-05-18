@@ -1,0 +1,57 @@
+#Display all the Supplier names with the initial letter capitalDisplay all the Supplier names with the initial letter capital
+
+SELECT concat(UPPER(SUBSTR(Sname,1,1)), LOWER(SUBSTR(Sname,2))) "Name" 
+FROM S;
+
+#Display all the Supplier names in upper case
+
+SELECT UPPER(Sname) "Name" 
+FROM S;
+
+#Display all the Supplier names in lower case
+
+SELECT LOWER(Sname) "Name" 
+FROM S;
+
+#Display all the Supplier names padded to 25 characters, with spaces on the left
+
+SELECT LPAD(Sname, 25, ' ') 
+FROM S;
+
+#Display all the Supplier names (with ‘ha’ replaced by ‘ro’).
+ HINT: REPLACE. 
+ 
+SELECT REPLACE(LOWER(Sname), 'ha', 'ro') 
+FROM S;
+
+#Implement the above command such that ‘h’ is replaced with ‘r’ and ‘a’ is replaced
+with ‘o’. 
+
+SELECT REPLACE(LOWER(Sname), 'h', 'r'), REPLACE(LOWER(Sname), 'a','o') 
+FROM S;
+
+#Display the Supplier names and the lengths of the names. 
+
+SELECT Sname, LENGTH(Sname) "Length"
+FROM S;
+
+#Use the soundex function to search for a supplier by the name of ‘BLOKE’. 
+
+SELECT * FROM S
+WHERE SOUNDEX(Sname) = SOUNDEX('Blook');
+
+#Display the Supplier name and the status (as Ten, Twenty, Thirty, etc.). 
+
+SELECT
+CASE
+WHEN Status = 10 then 'Ten'
+WHEN Status = 20 then 'Twenty'
+WHEN Status = 30 then 'Thirty'
+WHEN Status = 40 then 'Fourty'
+WHEN Status = 50 then 'Fifty'
+END "STATUSCODE"
+FROM s;
+
+#Display the current day (e.g. Thursday). 
+
+SELECT DAYNAME(SYSDATE()) FROM dual;
